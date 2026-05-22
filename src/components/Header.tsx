@@ -229,18 +229,9 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             
             {/* Mobile Dropdown Category Links */}
             <div className="py-1">
-  <button
-    onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-    className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
-  >
-    <span>Kategori Produk</span>
-
-    <ChevronDown
-      className={`w-4 h-4 transition-transform duration-200 ${
-        mobileDropdownOpen ? 'rotate-180' : ''
-      }`}
-    />
-  </button>
+              <span className="block px-3 py-1.5 text-xs font-bold text-stone-400 uppercase tracking-widest">
+                Kategori Produk
+              </span>
               <div className="pl-3 mt-1 space-y-1">
                 <button
                   onClick={() => handleCategoryClick('sosis')}
