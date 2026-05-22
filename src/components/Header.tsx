@@ -261,7 +261,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
                 >
                   🥣 Olahan Bakso
                 </button>
-              )} </div>
+              </div>
             </div>
 
             <a
