@@ -33,7 +33,7 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
                 />
               </div>
               <p className="text-stone-400 text-sm leading-relaxed mb-4">
-                Distributor frozen food seperti sosis, nugget, dan bakso olahan yang berkualitas dan harga terjangkau.
+                Distributor olahan produk frozen food seperti sosis, nugget, cedea, dan bakso yang berkualitas dengan harga terjangkau. Kamu bisa kunjungi alamat toko kami di bawah ini.
               </p>
               <a
                 href="https://maps.app.goo.gl/xwdfcS99Rvn3MYFEA"
