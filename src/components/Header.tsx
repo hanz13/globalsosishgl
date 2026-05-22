@@ -117,7 +117,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             id="brand-logo"
           >
             <img
-              src="/src/assets/images/Logo.png"
+              src="/images/Logo.png"
               alt="Global Sosis Haurgeulis"
               referrerPolicy="no-referrer"
               className="h-12 w-auto sm:h-14 md:h-16 object-contain transition-transform duration-300 group-hover:scale-105"
