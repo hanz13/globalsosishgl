@@ -118,7 +118,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
           >
             <img
   src="/images/transparent.png"
-  alt="Logo"
+  alt="Global Sosis Haurgeulis"
   className="h-16"
 />
           </a>
