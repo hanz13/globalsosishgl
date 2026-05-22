@@ -1,6 +1,6 @@
 {
   "name": "Global Sosis Haurgeulis",
-  "description": "Website profil resmi Global Sosis Haurgeulis, produsen sosis, nugget, dan bakso lezat berkualitas tinggi dan halal.",
+  "description": "Global Sosis Haurgeulis, produsen sosis, nugget, dan bakso lezat berkualitas tinggi dan halal.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
