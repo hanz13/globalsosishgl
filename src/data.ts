@@ -150,8 +150,8 @@ export const articles: Article[] = [
 export const contactInfo: ContactInfo = {
   address: 'Global Sosis Haurgeulis, Kec. Haurgeulis, Kabupaten Indramayu, Jawa Barat 45264, Indonesia',
   googleMapsEmbedUrl: 'https://maps.google.com/maps?q=Global%20Sosis%20Haurgeulis%20Haurgeulis%20Indramayu&t=&z=16&ie=UTF8&iwloc=&output=embed',
-  email: 'info@globalsosishaurgeulis.com',
+  email: 'globalsosishgl@gmail.com',
   phone: '+62 812-3456-7890',
   whatsappNumber: '6281234567890',
-  workingHours: 'Senin - Sabtu: 08:00 - 17:00 WIB (Minggu Libur)'
+  workingHours: 'Senin - Minggu: 05:00 - 18:00 WIB'
 };
