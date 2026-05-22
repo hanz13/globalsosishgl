@@ -228,7 +228,6 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             </a>
             
             {/* Mobile Dropdown Category Links */}
-            {/* Mobile Dropdown Category Links */}
 <div className="py-1">
 
   <button
@@ -244,32 +243,32 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
     />
   </button>
 
-  {mobileDropdownOpen && (
+  {mobileDropdownOpen ? (
     <div className="pl-3 mt-2 space-y-1">
 
       <button
         onClick={() => handleCategoryClick('sosis')}
-        className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+        className="w-full text-left px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
       >
         🍢 Sosis Premium
       </button>
 
       <button
         onClick={() => handleCategoryClick('nugget')}
-        className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+        className="w-full text-left px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
       >
-        🍗 Nugget Crispy
+        🍗 Nugget Ayam
       </button>
 
       <button
         onClick={() => handleCategoryClick('bakso')}
-        className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+        className="w-full text-left px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
       >
-        🥣 Bakso Kenyal
+        🥣 Olahan Bakso
       </button>
 
     </div>
-  )}
+  ) : null}
 
 </div>
 
