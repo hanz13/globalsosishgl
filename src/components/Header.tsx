@@ -117,10 +117,10 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             id="brand-logo"
           >
             <img
-  src="/images/transparent.png"
-  alt="Global Sosis Haurgeulis"
-  className="h-16"
-/>
+            src="/images/transparent.png"
+            alt="Global Sosis Haurgeulis"
+            className="h-16"
+          />
           </a>
 
           {/* Desktop Navigation */}
