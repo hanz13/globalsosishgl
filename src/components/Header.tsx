@@ -65,12 +65,12 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
   };
 
   const handleCategoryClick = (category: Category) => {
-    setIsOpen(false);
-    setDropdownOpen(false);
-    
-    if (onViewChange && currentView !== 'home') {
-      onViewChange('home');
-    }
+  setIsOpen(false);
+  setDropdownOpen(false);
+  setMobileDropdownOpen(false);
+
+  ...
+};
     
     onSelectCategory(category);
     
