@@ -11,6 +11,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, currentView = 'home' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -134,12 +135,11 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             </a>
 
             {/* Products Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setDropdownOpen(!dropdownOpen)}
-                onMouseEnter={() => setDropdownOpen(true)}
-                className="px-4 py-2 text-sm font-medium text-stone-700 hover:text-rose-600 rounded-lg hover:bg-stone-50 flex items-center gap-1 transition-all"
-              >
+            <div
+            className="relative"
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+            >
                 Produk
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
@@ -229,9 +229,19 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             
             {/* Mobile Dropdown Category Links */}
             <div className="py-1">
-              <span className="block px-3 py-1.5 text-xs font-bold text-stone-400 uppercase tracking-widest">
-                Kategori Produk
-              </span>
+  <button
+    onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+    className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
+  >
+    <span>Kategori Produk</span>
+
+    <ChevronDown
+      className={`w-4 h-4 transition-transform duration-200 ${
+        mobileDropdownOpen ? 'rotate-180' : ''
+      }`}
+    />
+  </button>
+              {mobileDropdownOpen && (
               <div className="pl-3 mt-1 space-y-1">
                 <button
                   onClick={() => handleCategoryClick('sosis')}
@@ -251,7 +261,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
                 >
                   🥣 Bakso Kenyal
                 </button>
-              </div>
+              )} </div>
             </div>
 
             <a
