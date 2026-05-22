@@ -65,12 +65,12 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
   };
 
   const handleCategoryClick = (category: Category) => {
-  setIsOpen(false);
-  setDropdownOpen(false);
-  setMobileDropdownOpen(false);
-
-  ...
-};
+    setIsOpen(false);
+    setDropdownOpen(false);
+    
+    if (onViewChange && currentView !== 'home') {
+      onViewChange('home');
+    }
     
     onSelectCategory(category);
     
@@ -196,7 +196,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
               className="flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md shadow-rose-100 transition-all hover:scale-105 active:scale-95"
             >
               <Phone className="w-4 h-4" />
-              Order Sekarang!
+              Hubungi Sales
             </a>
           </div>
 
@@ -228,49 +228,31 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             </a>
             
             {/* Mobile Dropdown Category Links */}
-<div className="py-1">
-
-  <button
-    onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-    className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
-  >
-    <span>Kategori Produk</span>
-
-    <ChevronDown
-      className={`w-4 h-4 transition-transform duration-200 ${
-        mobileDropdownOpen ? 'rotate-180' : ''
-      }`}
-    />
-  </button>
-
-  {mobileDropdownOpen ? (
-    <div className="pl-3 mt-2 space-y-1">
-
-      <button
-        onClick={() => handleCategoryClick('sosis')}
-        className="w-full text-left px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
-      >
-        🍢 Sosis Premium
-      </button>
-
-      <button
-        onClick={() => handleCategoryClick('nugget')}
-        className="w-full text-left px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
-      >
-        🍗 Nugget Ayam
-      </button>
-
-      <button
-        onClick={() => handleCategoryClick('bakso')}
-        className="w-full text-left px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
-      >
-        🥣 Olahan Bakso
-      </button>
-
-    </div>
-  ) : null}
-
-</div>
+            <div className="py-1">
+              <span className="block px-3 py-1.5 text-xs font-bold text-stone-400 uppercase tracking-widest">
+                Kategori Produk
+              </span>
+              <div className="pl-3 mt-1 space-y-1">
+                <button
+                  onClick={() => handleCategoryClick('sosis')}
+                  className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+                >
+                  🍢 Sosis Premium
+                </button>
+                <button
+                  onClick={() => handleCategoryClick('nugget')}
+                  className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+                >
+                  🍗 Nugget Crispy
+                </button>
+                <button
+                  onClick={() => handleCategoryClick('bakso')}
+                  className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+                >
+                  🥣 Bakso Kenyal
+                </button>
+              </div>
+            </div>
 
             <a
               href="#media"
