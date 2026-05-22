@@ -134,11 +134,12 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             </a>
 
             {/* Products Dropdown */}
-            <div
-            className="relative"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
-            >
+            <div className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onMouseEnter={() => setDropdownOpen(true)}
+                className="px-4 py-2 text-sm font-medium text-stone-700 hover:text-rose-600 rounded-lg hover:bg-stone-50 flex items-center gap-1 transition-all"
+              >
                 Produk
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
