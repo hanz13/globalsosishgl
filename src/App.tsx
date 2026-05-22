@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Header } from './components/Header';
 import { HeroSlider } from './components/HeroSlider';
 import { AboutUs } from './components/AboutUs';
@@ -28,6 +29,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col justify-between selection:bg-rose-600 selection:text-white">
+      <SpeedInsights />
       {/* Sticky Header Navigation bar */}
       <Header 
         onSelectCategory={handleCategorySelectFromHeader} 
