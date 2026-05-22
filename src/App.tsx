@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Header } from './components/Header';
 import { HeroSlider } from './components/HeroSlider';
 import { AboutUs } from './components/AboutUs';
@@ -70,6 +71,9 @@ export default function App() {
 
       {/* Corner floating WhatsApp direct-trigger button */}
       <WhatsAppButton />
+      
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
