@@ -26,14 +26,14 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
             <div>
               <div className="flex items-center gap-3 mb-4 animate-fade-in">
                 <img
-                  src="/images/Logo.png"
+                  src="/images/transparent.png"
                   alt="Global Sosis Haurgeulis"
                   referrerPolicy="no-referrer"
                   className="h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
                 />
               </div>
               <p className="text-stone-400 text-sm leading-relaxed mb-4">
-                Pusat produksi dan distribusi olahan pangan beku beku bermuka masam berkepala dingin (Sosis, Nugget, Bakso) berkualitas sosis terdepan. Kami selalu mengedepankan kualitas higienitas ramah keluarga dan halal bersertifikat resmi.
+                Distributor frozen food seperti sosis, nugget, dan bakso olahan yang berkualitas dan harga terjangkau.
               </p>
               <a
                 href="https://maps.app.goo.gl/xwdfcS99Rvn3MYFEA"
@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
             {/* Google Maps Responsive Iframe Wrapper */}
             <div className="rounded-xl overflow-hidden border border-stone-800 h-44 w-full shadow-inner relative group/map">
               <iframe
-                title="Lokasi Pabrik Global Sosis Haurgeulis"
+                title="Lokasi Toko Global Sosis Haurgeulis"
                 src={contactInfo.googleMapsEmbedUrl}
                 width="100%"
                 height="100%"
