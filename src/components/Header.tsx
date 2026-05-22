@@ -241,7 +241,6 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
       }`}
     />
   </button>
-              {mobileDropdownOpen && (
               <div className="pl-3 mt-1 space-y-1">
                 <button
                   onClick={() => handleCategoryClick('sosis')}
@@ -253,13 +252,13 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
                   onClick={() => handleCategoryClick('nugget')}
                   className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
                 >
-                  🍗 Nugget Ayam
+                  🍗 Nugget Crispy
                 </button>
                 <button
                   onClick={() => handleCategoryClick('bakso')}
                   className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
                 >
-                  🥣 Olahan Bakso
+                  🥣 Bakso Kenyal
                 </button>
               </div>
             </div>
