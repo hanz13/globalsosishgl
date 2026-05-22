@@ -196,7 +196,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
               className="flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md shadow-rose-100 transition-all hover:scale-105 active:scale-95"
             >
               <Phone className="w-4 h-4" />
-              Hubungi Sales
+              ORDER SEKARANG!
             </a>
           </div>
 
