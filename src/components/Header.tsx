@@ -117,8 +117,8 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
             id="brand-logo"
           >
             <img
-              src="/src/assets/images/global_sosis_logo_1779438991500.png"
-              alt="Global Sosis Haurgeulis Logo"
+              src="/src/assets/images/logo.png"
+              alt="Global Sosis Haurgeulis"
               referrerPolicy="no-referrer"
               className="h-12 w-auto sm:h-14 md:h-16 object-contain transition-transform duration-300 group-hover:scale-105"
             />
@@ -166,7 +166,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
                     onClick={() => handleCategoryClick('bakso')}
                     className="w-full text-left px-4 py-2.5 text-sm text-stone-700 hover:text-rose-600 hover:bg-rose-50/60 font-medium transition-colors"
                   >
-                    🥣 Bakso Kenyal
+                    🥣 Olahan Bakso
                   </button>
                 </div>
               )}
@@ -278,7 +278,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, 
                 className="w-full text-center flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-3 rounded-xl text-base font-bold shadow-md shadow-rose-150 transition-all"
               >
                 <Phone className="w-5 h-5" />
-                Hubungi Sales Sekarang
+                Order Sekarang
               </a>
             </div>
           </div>
