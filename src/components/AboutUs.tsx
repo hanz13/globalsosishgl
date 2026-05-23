@@ -91,8 +91,8 @@ export const AboutUs: React.FC = () => {
                   <HeartHandshake className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-stone-900 text-sm sm:text-base">Bahan Baku Premium</h3>
-                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Daging sapi segar murni & dada ayam filet premium bebas pengawet berbahaya.</p>
+                  <h3 className="font-bold text-stone-900 text-sm sm:text-base">Dipercaya Sejak 2008</h3>
+                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Toko kami sudah dipercaya oleh pelanggan sejak tahun 2008 hingga kini.</p>
                 </div>
               </div>
 
@@ -111,8 +111,8 @@ export const AboutUs: React.FC = () => {
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-stone-900 text-sm sm:text-base">Kaya Rempah Khas</h3>
-                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Racikan bumbu dapur rahasia tradisional meningkatkan rasa gurih yang memikat.</p>
+                  <h3 className="font-bold text-stone-900 text-sm sm:text-base">Mendukung Pedagang Lokal</h3>
+                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Membantu UMKM maupun pelaku usaha mendapatkan produk berkualitas dengan harga terjangkau.</p>
                 </div>
               </div>
 
@@ -121,8 +121,8 @@ export const AboutUs: React.FC = () => {
                   <Zap className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-stone-900 text-sm sm:text-base">Kemasan Higienis Modern</h3>
-                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Metode pembekuan kilat vakum ganda menjaga kualitas rasa tetap utuh berminggu-minggu.</p>
+                  <h3 className="font-bold text-stone-900 text-sm sm:text-base">Pelayanan Cepat dan Ramah</h3>
+                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Pelayanan yang cepat sekaligus ramah untuk membantu pelanggan.</p>
                 </div>
               </div>
             </div>
