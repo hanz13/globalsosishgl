@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown, Award, Phone } from 'lucide-react';
 import { Category } from '../types';
 
 interface HeaderProps {
@@ -8,73 +8,89 @@ interface HeaderProps {
   currentView?: 'home' | 'privacy' | 'terms';
 }
 
-export const Header: React.FC<HeaderProps> = ({
-  onSelectCategory,
-  onViewChange,
-  currentView = 'home',
-}) => {
+export const Header: React.FC<HeaderProps> = ({ onSelectCategory, onViewChange, currentView = 'home' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileProductOpen, setMobileProductOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsOpen(false);
-        setMobileProductOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const scrollToId = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const offsetPosition = elementRect - bodyRect - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    }
-  };
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
-  ) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     setIsOpen(false);
+    
     if (onViewChange && currentView !== 'home') {
       onViewChange('home');
-      setTimeout(() => scrollToId(targetId), 120);
+      // wait for home view to load before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          const offset = 80;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 120);
       return;
     }
-    scrollToId(targetId);
+
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80; // height of sticky header
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   const handleCategoryClick = (category: Category) => {
     setIsOpen(false);
     setDropdownOpen(false);
-    setMobileProductOpen(false);
-    if (onViewChange && currentView !== 'home') onViewChange('home');
+    
+    if (onViewChange && currentView !== 'home') {
+      onViewChange('home');
+    }
+    
     onSelectCategory(category);
-    setTimeout(() => scrollToId('produk'), 150);
-  };
+    
+    // Smooth scroll to catalog
+    setTimeout(() => {
+      const element = document.getElementById('produk');
+      if (element) {
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
 
-  const categories: { cat: Category; emoji: string; label: string }[] = [
-    { cat: 'sosis', emoji: '\uD83C\uDF62', label: 'Sosis Premium' },
-    { cat: 'nugget', emoji: '\uD83C\uDF57', label: 'Nugget Crispy' },
-    { cat: 'bakso', emoji: '\uD83E\uDD63', label: 'Olahan Bakso' },
-  ];
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 150);
+  };
 
   return (
     <header
@@ -87,27 +103,29 @@ export const Header: React.FC<HeaderProps> = ({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-
-          {/* Logo */}
           
+          {/* Logo / Brand Name */}
+          <a
             href="#"
             onClick={(e) => {
-              if (onViewChange && currentView !== 'home') onViewChange('home');
+              if (onViewChange && currentView !== 'home') {
+                onViewChange('home');
+              }
               handleNavClick(e, 'hero-section');
             }}
             className="flex items-center gap-1 group focus:outline-none"
             id="brand-logo"
           >
             <img
-              src="/images/transparent.png"
-              alt="Global Sosis Haurgeulis"
-              className="h-16"
-            />
+            src="/images/transparent.png"
+            alt="Global Sosis Haurgeulis"
+            className="h-16"
+          />
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2" id="desktop-nav">
-            
+            <a
               href="#about"
               onClick={(e) => handleNavClick(e, 'tentang-kami')}
               className="px-4 py-2 text-sm font-medium text-stone-700 hover:text-rose-600 rounded-lg hover:bg-stone-50 transition-all"
@@ -115,53 +133,53 @@ export const Header: React.FC<HeaderProps> = ({
               Tentang Kami
             </a>
 
-            {/* Desktop Dropdown */}
-            <div
-              ref={dropdownRef}
-              className="relative"
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
-            >
+            {/* Products Dropdown */}
+            <div className="relative">
               <button
-                onClick={() => setDropdownOpen((prev) => !prev)}
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onMouseEnter={() => setDropdownOpen(true)}
                 className="px-4 py-2 text-sm font-medium text-stone-700 hover:text-rose-600 rounded-lg hover:bg-stone-50 flex items-center gap-1 transition-all"
               >
                 Produk
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    dropdownOpen ? 'rotate-180' : 'rotate-0'
-                  }`}
-                />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              <div
-                className={`absolute left-0 mt-1 w-48 bg-white border border-stone-100 rounded-xl shadow-xl py-2 z-50 transition-all duration-200 origin-top ${
-                  dropdownOpen
-                    ? 'opacity-100 scale-y-100 pointer-events-auto'
-                    : 'opacity-0 scale-y-95 pointer-events-none'
-                }`}
-              >
-                {categories.map(({ cat, emoji, label }) => (
+              {dropdownOpen && (
+                <div
+                  onMouseLeave={() => setDropdownOpen(false)}
+                  className="absolute left-0 mt-1 w-48 bg-white border border-stone-100 rounded-xl shadow-xl py-2 z-50 animate-fade-in"
+                >
                   <button
-                    key={cat}
-                    onClick={() => handleCategoryClick(cat)}
+                    onClick={() => handleCategoryClick('sosis')}
                     className="w-full text-left px-4 py-2.5 text-sm text-stone-700 hover:text-rose-600 hover:bg-rose-50/60 font-medium transition-colors"
                   >
-                    {emoji} {label}
+                    🍢 Sosis Premium
                   </button>
-                ))}
-              </div>
+                  <button
+                    onClick={() => handleCategoryClick('nugget')}
+                    className="w-full text-left px-4 py-2.5 text-sm text-stone-700 hover:text-rose-600 hover:bg-rose-50/60 font-medium transition-colors"
+                  >
+                    🍗 Nugget Crispy
+                  </button>
+                  <button
+                    onClick={() => handleCategoryClick('bakso')}
+                    className="w-full text-left px-4 py-2.5 text-sm text-stone-700 hover:text-rose-600 hover:bg-rose-50/60 font-medium transition-colors"
+                  >
+                    🥣 Olahan Bakso
+                  </button>
+                </div>
+              )}
             </div>
 
-            
+            <a
               href="#media"
               onClick={(e) => handleNavClick(e, 'media-artikel')}
               className="px-4 py-2 text-sm font-medium text-stone-700 hover:text-rose-600 rounded-lg hover:bg-stone-50 transition-all"
             >
-              Media &amp; Artikel
+              Media & Artikel
             </a>
 
-            
+            <a
               href="#contact"
               onClick={(e) => handleNavClick(e, 'kontak')}
               className="px-4 py-2 text-sm font-medium text-stone-700 hover:text-rose-600 rounded-lg hover:bg-stone-50 transition-all"
@@ -170,9 +188,9 @@ export const Header: React.FC<HeaderProps> = ({
             </a>
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Desktop Call to Action */}
           <div className="hidden md:flex items-center">
-            
+            <a
               href="#kontak"
               onClick={(e) => handleNavClick(e, 'kontak')}
               className="flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-md shadow-rose-100 transition-all hover:scale-105 active:scale-95"
@@ -182,113 +200,89 @@ export const Header: React.FC<HeaderProps> = ({
             </a>
           </div>
 
-          {/* Hamburger - smooth animated */}
+          {/* Mobile Hamburger menu button */}
           <div className="flex md:hidden">
             <button
-              onClick={() => setIsOpen((prev) => !prev)}
-              className="relative text-stone-700 hover:text-rose-600 p-2 rounded-lg hover:bg-stone-100 focus:outline-none transition-colors w-10 h-10 flex items-center justify-center"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-stone-700 hover:text-rose-600 p-2 rounded-lg hover:bg-stone-100 focus:outline-none transition-colors"
               aria-expanded={isOpen}
               aria-label="Toggle navigation menu"
             >
-              <span
-                className={`absolute transition-all duration-300 ${
-                  isOpen
-                    ? 'opacity-100 rotate-0 scale-100'
-                    : 'opacity-0 rotate-90 scale-50'
-                }`}
-              >
-                <X className="w-6 h-6" />
-              </span>
-              <span
-                className={`absolute transition-all duration-300 ${
-                  isOpen
-                    ? 'opacity-0 -rotate-90 scale-50'
-                    : 'opacity-100 rotate-0 scale-100'
-                }`}
-              >
-                <Menu className="w-6 h-6" />
-              </span>
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
+
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`md:hidden border-t border-stone-100 bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="px-4 pt-3 pb-6 space-y-2">
-          
-            href="#about"
-            onClick={(e) => handleNavClick(e, 'tentang-kami')}
-            className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
-          >
-            Tentang Kami
-          </a>
-
-          {/* Mobile Product Toggle */}
-          <div>
-            <button
-              onClick={() => setMobileProductOpen((prev) => !prev)}
-              className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
+      {isOpen && (
+        <div className="md:hidden border-t border-stone-100 bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 shadow-lg animate-slide-down">
+          <div className="px-4 pt-3 pb-6 space-y-2">
+            <a
+              href="#about"
+              onClick={(e) => handleNavClick(e, 'tentang-kami')}
+              className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
             >
-              <span>Produk</span>
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-300 ${
-                  mobileProductOpen ? 'rotate-180' : 'rotate-0'
-                }`}
-              />
-            </button>
-
-            <div
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                mobileProductOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
-              <div className="pl-3 mt-1 space-y-1 pb-1">
-                {categories.map(({ cat, emoji, label }) => (
-                  <button
-                    key={cat}
-                    onClick={() => handleCategoryClick(cat)}
-                    className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
-                  >
-                    {emoji} {label}
-                  </button>
-                ))}
+              Tentang Kami
+            </a>
+            
+            {/* Mobile Dropdown Category Links */}
+            <div className="py-1">
+              <span className="block px-3 py-1.5 text-xs font-bold text-stone-400 uppercase tracking-widest">
+                Kategori Produk
+              </span>
+              <div className="pl-3 mt-1 space-y-1">
+                <button
+                  onClick={() => handleCategoryClick('sosis')}
+                  className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+                >
+                  🍢 Sosis Premium
+                </button>
+                <button
+                  onClick={() => handleCategoryClick('nugget')}
+                  className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+                >
+                  🍗 Nugget Ayam
+                </button>
+                <button
+                  onClick={() => handleCategoryClick('bakso')}
+                  className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+                >
+                  🥣 Olahan Bakso
+                </button>
               </div>
             </div>
-          </div>
 
-          
-            href="#media"
-            onClick={(e) => handleNavClick(e, 'media-artikel')}
-            className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
-          >
-            Media &amp; Artikel
-          </a>
-
-          
-            href="#contact"
-            onClick={(e) => handleNavClick(e, 'kontak')}
-            className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
-          >
-            Kontak
-          </a>
-
-          <div className="pt-4 border-t border-stone-100">
-            
-              href="#kontak"
-              onClick={(e) => handleNavClick(e, 'kontak')}
-              className="w-full text-center flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-3 rounded-xl text-base font-bold shadow-md transition-all"
+            <a
+              href="#media"
+              onClick={(e) => handleNavClick(e, 'media-artikel')}
+              className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
             >
-              <Phone className="w-5 h-5" />
-              ORDER SEKARANG!
+              Media &amp; Artikel
             </a>
+
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, 'kontak')}
+              className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
+            >
+              Kontak
+            </a>
+
+            <div className="pt-4 border-t border-stone-100">
+              <a
+                href="#kontak"
+                onClick={(e) => handleNavClick(e, 'kontak')}
+                className="w-full text-center flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-3 rounded-xl text-base font-bold shadow-md shadow-rose-150 transition-all"
+              >
+                <Phone className="w-5 h-5" />
+                ORDER SEKARANG!
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };
