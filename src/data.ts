@@ -67,13 +67,13 @@ export const products: Product[] = [
   },
   {
     id: 'nugget-2',
-    name: 'Nugget Ayam Melted Cheese',
+    name: 'Stik Nugget Ayam Okey',
     category: 'nugget',
     description: 'Nugget ayam keemasan dengan isian keju cheddar lumer melimpah di setiap gigitannya.',
     fullDescription: 'Nugget ayam premium dengan rahasia kelezatan di dalamnya: keju cheddar lumer berkualitas tinggi. Saat digoreng hangat, keju di dalam nugget akan meleleh sempurna. Perpaduan asin gurih keju yang meleleh dengan renyahnya permukaan luar nugget ayam ini dijamin membuat ketagihan.',
     image: 'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?q=80&w=800&auto=format&fit=crop',
-    packagingSize: '400g (Sekitar 16 Pcs)',
-    features: ['Keju Cheddar Lumer Maksimal', 'Daging Dada Ayam Pilihan', 'Tanpa tambahan MSG berlebih', 'Garing Sempurna']
+    packagingSize: '500g (Sekitar 40 Pcs)',
+    features: ['Pedagang Rumahan', 'Cafe & Angkringan', 'Reseller Frozen Food', 'UMKM Kuliner']
   },
   {
     id: 'nugget-3',
@@ -81,7 +81,7 @@ export const products: Product[] = [
     category: 'nugget',
     description: 'Nugget ayam bentuk koin klasik berlapis tepung roti keemasan, kaya gizi dan praktis.',
     fullDescription: 'Formulasi resep klasik yang disempurnakan sejak berdirinya Global Sosis Haurgeulis. Menggunakan potongan dada ayam padat berprotein tinggi yang dicampur halus dengan bawang bombay segar, lada putih Bangka, dan tepung roti keemasan bermutu tinggi. Sangat praktis sebagai bekal sekolah anak maupun menu sarapan kilat.',
-    image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800&auto=format&fit=crop',
+    image: '/images/naget-okey.webp?q=80&w=800&auto=format&fit=crop',
     packagingSize: '500g (Sekitar 22 Pcs)',
     features: ['Resep Warisan Legendaris', 'Aroma Bawang Bombay Segar', 'Kemasan Zipper Lock Praktis', 'Kandungan Protein Tinggi']
   },
@@ -111,9 +111,9 @@ export const products: Product[] = [
     category: 'bakso',
     description: 'Bakso Ayam Salam merupakan bakso ayam siap olah dengan tekstur kenyal dan rasa gurih lezat.',
     fullDescription: 'Produk ini sudah dimasak (fully cooked) sehingga lebih praktis dan mudah diolah untuk berbagai menu seperti bakso kuah, mie ayam, yamin, seblak, capcay, hingga aneka frozen food dan jajanan kaki lima.',
-    image: 'https://globalsosishgl.biz.id/images/bakso-salam.webp?q=80&w=800&auto=format&fit=crop',
+    image: '/images/bakso-salam.webp?q=80&w=800&auto=format&fit=crop',
     packagingSize: '40 Pcs / Pack',
-    features: ['Rendah Lemak Jenuh', 'Harum Bawang Putih Goreng', 'Nutrisi Protein Tinggi', 'Sangat Disukai Balita']
+    features: ['Pedagang Bakso', 'Cafe & Angkringan', 'Catering', 'UMKM Kuliner']
   }
 ];
 

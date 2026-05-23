@@ -269,7 +269,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
 
                     {/* Features checklist bulletpoints */}
                     <h4 className="text-xs font-bold text-stone-400 uppercase tracking-wider mb-2.5">
-                      Keunggulan Mutu Sosis Haurgeulis
+                      Sangat Cocok Digunakan Oleh :
                     </h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-stone-600 text-xs sm:text-sm mb-6">
                       {activeModalProduct.features.map((feature, i) => (
