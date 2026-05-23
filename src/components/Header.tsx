@@ -19,8 +19,13 @@ export const Header: React.FC<HeaderProps> = ({
   const [mobileProductOpen, setMobileProductOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   const dropdownRef = useRef<HTMLDivElement>(null);
   const aboutDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Timeout refs untuk delay menutup dropdown — mencegah flicker saat cursor berpindah
+  const dropdownCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const aboutCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -39,6 +44,32 @@ export const Header: React.FC<HeaderProps> = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Cleanup timers saat unmount
+  useEffect(() => {
+    return () => {
+      if (dropdownCloseTimer.current) clearTimeout(dropdownCloseTimer.current);
+      if (aboutCloseTimer.current) clearTimeout(aboutCloseTimer.current);
+    };
+  }, []);
+
+  // Produk dropdown handlers dengan delay
+  const handleProductMouseEnter = () => {
+    if (dropdownCloseTimer.current) clearTimeout(dropdownCloseTimer.current);
+    setDropdownOpen(true);
+  };
+  const handleProductMouseLeave = () => {
+    dropdownCloseTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+  };
+
+  // Tentang Kami dropdown handlers dengan delay
+  const handleAboutMouseEnter = () => {
+    if (aboutCloseTimer.current) clearTimeout(aboutCloseTimer.current);
+    setAboutDropdownOpen(true);
+  };
+  const handleAboutMouseLeave = () => {
+    aboutCloseTimer.current = setTimeout(() => setAboutDropdownOpen(false), 120);
+  };
 
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
@@ -136,8 +167,8 @@ export const Header: React.FC<HeaderProps> = ({
             <div
               ref={aboutDropdownRef}
               className="relative"
-              onMouseEnter={() => setAboutDropdownOpen(true)}
-              onMouseLeave={() => setAboutDropdownOpen(false)}
+              onMouseEnter={handleAboutMouseEnter}
+              onMouseLeave={handleAboutMouseLeave}
             >
               <button
                 onClick={() => setAboutDropdownOpen((prev) => !prev)}
@@ -155,8 +186,11 @@ export const Header: React.FC<HeaderProps> = ({
                 />
               </button>
 
+              {/* Invisible bridge: menutup gap antara tombol dan dropdown */}
+              <div className="absolute left-0 right-0 h-2 top-full" />
+
               <div
-                className={`absolute left-0 mt-1 w-48 bg-white border border-stone-100 rounded-xl shadow-xl py-2 z-50 transition-all duration-200 origin-top ${
+                className={`absolute left-0 mt-2 w-48 bg-white border border-stone-100 rounded-xl shadow-xl py-2 z-50 transition-all duration-200 origin-top ${
                   aboutDropdownOpen
                     ? 'opacity-100 scale-y-100 pointer-events-auto'
                     : 'opacity-0 scale-y-95 pointer-events-none'
@@ -185,8 +219,8 @@ export const Header: React.FC<HeaderProps> = ({
             <div
               ref={dropdownRef}
               className="relative"
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
+              onMouseEnter={handleProductMouseEnter}
+              onMouseLeave={handleProductMouseLeave}
             >
               <button
                 onClick={() => setDropdownOpen((prev) => !prev)}
@@ -200,8 +234,11 @@ export const Header: React.FC<HeaderProps> = ({
                 />
               </button>
 
+              {/* Invisible bridge: menutup gap antara tombol dan dropdown */}
+              <div className="absolute left-0 right-0 h-2 top-full" />
+
               <div
-                className={`absolute left-0 mt-1 w-48 bg-white border border-stone-100 rounded-xl shadow-xl py-2 z-50 transition-all duration-200 origin-top ${
+                className={`absolute left-0 mt-2 w-48 bg-white border border-stone-100 rounded-xl shadow-xl py-2 z-50 transition-all duration-200 origin-top ${
                   dropdownOpen
                     ? 'opacity-100 scale-y-100 pointer-events-auto'
                     : 'opacity-0 scale-y-95 pointer-events-none'
@@ -248,7 +285,7 @@ export const Header: React.FC<HeaderProps> = ({
             </a>
           </div>
 
-          {/* Hamburger - smooth animated */}
+          {/* Hamburger */}
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen((prev) => !prev)}

@@ -64,26 +64,7 @@ export const AboutUs: React.FC = () => {
             <p className="mt-4 text-stone-600 leading-relaxed text-sm sm:text-base">
               Kini, Global Sosis Haurgeulis menyediakan beragam produk olahan seperti sosis, nugget, cedea, scallop, olahan bakso dan aneka frozen food lainnya dengan kualitas terbaik, harga bersahabat, serta pelayanan yang terpercaya.
             </p>
-
-            <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 leading-tight tracking-tight">
-              Visi & Misi Kami
-            </h3>
-
-            <p className="mt-4 text-stone-600 leading-relaxed text-sm sm:text-base">
-              <strong>Visi</strong><br/>
-              Menjadi pusat distributor frozen food dan kebutuhan usaha terpercaya di Haurgeulis yang dikenal dengan produk berkualitas, pelayanan terbaik, serta mampu mendukung pertumbuhan usaha masyarakat dan pedagang lokal.
-              </p>
-
-            <p className="mt-4 text-stone-600 leading-relaxed text-sm sm:text-base">
-              <strong>Misi</strong><br/>
-              1. Menyediakan produk frozen food yang berkualitas, higienis, dan aman dikonsumsi.<br/>
-              2. Memberikan harga yang terjangkau dengan pelayanan yang ramah dan terpercaya.<br/>
-              3. Menjadi mitra kebutuhan usaha bagi pedagang, UMKM, dan pelaku kuliner di wilayah Haurgeulis dan sekitarnya.<br/>
-              4. Terus berinovasi dan berkembang mengikuti kebutuhan pasar dan pelanggan.<br/>
-              5. Membangun usaha yang bermanfaat bagi masyarakat sekitar serta membuka peluang ekonomi lokal.<br/>
-              6. Menjaga kepercayaan pelanggan dengan konsistensi kualitas produk dan pelayanan sejak tahun 2008.<br/>
-              </p>
-
+            
             {/* Action Highlights Grid */}
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex gap-3">
