@@ -208,7 +208,7 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
 
         {/* Bottom Horizontal Bar & Credits */}
         <div className="pt-8 mt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500" id="footer-bottom">
-          <p>© {new Date().getFullYear()} - Global Sosis Haurgeulis | All rights reserved.</p>
+          <p>© {new Date().getFullYear()} - Global Sosis Haurgeulis | All Rights Reserved.</p>
           <div className="flex gap-5 font-semibold text-stone-500">
             <button 
               onClick={() => { onViewChange?.('privacy'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
