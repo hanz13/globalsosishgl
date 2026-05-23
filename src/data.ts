@@ -107,11 +107,11 @@ export const products: Product[] = [
   },
   {
     id: 'bakso-3',
-    name: 'Bakso Ayam Gurih Wangi',
+    name: 'Bakso Salaam',
     category: 'bakso',
-    description: 'Bakso ayam lezat, gurih wangi bawang putih goreng dan daun seledri segar.',
-    fullDescription: 'Menawarkan alternatif sehat bagi penikmat bakso unggas. Dibuat dari daging fillet dada ayam segar dengan bumbu dominan bawang putih yang ditumis harum serta cincangan daun seledri organik. Teksturnya ringan, empuk, tetapi tetap padat dan gurih khas bakso asli Haurgeulis.',
-    image: 'https://images.unsplash.com/photo-1676955757407-b85b718a5682?q=80&w=800&auto=format&fit=crop',
+    description: 'Bakso Ayam Salam merupakan bakso ayam siap olah dengan tekstur kenyal dan rasa gurih lezat.',
+    fullDescription: 'Produk ini sudah dimasak (fully cooked) sehingga lebih praktis dan mudah diolah untuk berbagai menu seperti bakso kuah, mie ayam, yamin, seblak, capcay, hingga aneka frozen food dan jajanan kaki lima.',
+    image: 'https://globalsosishgl.biz.id/images/bakso-salam.webp?q=80&w=800&auto=format&fit=crop',
     packagingSize: '40 Pcs / Pack',
     features: ['Rendah Lemak Jenuh', 'Harum Bawang Putih Goreng', 'Nutrisi Protein Tinggi', 'Sangat Disukai Balita']
   }
