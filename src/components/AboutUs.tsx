@@ -62,9 +62,9 @@ export const AboutUs: React.FC = () => {
             </p>
 
             <p className="mt-4 text-stone-600 leading-relaxed text-sm sm:text-base">
-              Kini, Global Sosis Haurgeulis menyediakan beragam produk olahan seperti sosis, nugget, cedea, scallop, olahan bakso dan aneka frozen food lainnya dengan kualitas terbaik, harga bersahabat, serta pelayanan yang terpercaya.
+              Kini, Global Sosis Haurgeulis menyediakan beragam produk olahan seperti sosis, nugget, cedea, scallop, olahan bakso dan aneka frozen food lainnya dengan kualitas terbaik, harga bersahabat, serta memberi pelayanan yang terbaik.
             </p>
-            
+
             {/* Action Highlights Grid */}
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex gap-3">

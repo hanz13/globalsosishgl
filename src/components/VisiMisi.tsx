@@ -8,12 +8,12 @@ export const VisiMisi: React.FC = () => {
     'Menjadi mitra kebutuhan usaha bagi pedagang, UMKM, dan pelaku kuliner di wilayah Haurgeulis dan sekitarnya.',
     'Terus berinovasi dan berkembang mengikuti kebutuhan pasar dan pelanggan.',
     'Membangun usaha yang bermanfaat bagi masyarakat sekitar serta membuka peluang ekonomi lokal.',
-    'Menjaga kepercayaan pelanggan dengan konsistensi kualitas produk dan pelayanan sejak tahun 2007.',
+    'Menjaga kepercayaan pelanggan dengan konsistensi kualitas produk dan pelayanan sejak tahun 2008.',
   ];
 
   const nilaiList = [
     { icon: Star, title: 'Kualitas', desc: 'Produk frozen food higienis, aman dikonsumsi, dan melewati seleksi ketat.' },
-    { icon: CheckCircle2, title: 'Kepercayaan', desc: 'Konsistensi pelayanan dan kualitas yang telah terjaga sejak tahun 2007.' },
+    { icon: CheckCircle2, title: 'Kepercayaan', desc: 'Konsistensi pelayanan dan kualitas yang telah terjaga sejak tahun 2008.' },
     { icon: TrendingUp, title: 'Pertumbuhan', desc: 'Mendukung UMKM, pedagang, dan pelaku kuliner lokal untuk berkembang bersama.' },
   ];
 
@@ -34,7 +34,7 @@ export const VisiMisi: React.FC = () => {
             Visi &amp; Misi
           </h1>
           <p className="text-stone-500 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Komitmen kami dalam menjadi distributor frozen food terpercaya yang mendukung pertumbuhan usaha masyarakat dan pedagang lokal Haurgeulis.
+            Komitmen kami dalam menjadi distributor frozen food terpercaya yang mendukung pertumbuhan usaha masyarakat dan pedagang lokal di Haurgeulis dan sekitarnya.
           </p>
         </div>
 
