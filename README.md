@@ -1,4 +1,4 @@
-# 🍢 Global Sosis Haurgeulis
+# ✨ Global Sosis Haurgeulis ✨
 
 Project website company profile yang dibuat oleh Subhan Ashof untuk **Global Sosis Haurgeulis** — Distributor produk olahan frozen food sosis, nugget, dan olahan bakso premium dari Haurgeulis, Indramayu, Jawa Barat.
 
@@ -75,15 +75,6 @@ npm run preview
 ```
 
 Deploy otomatis ke **Vercel** setiap push ke branch `main`.
-
----
-
-## Kontak
-
-- 📍 Kec. Haurgeulis, Kabupaten Indramayu, Jawa Barat 45264
-- 📧 globalsosishgl@gmail.com
-- 📞 +62 812-1458-0881
-- 💬 [WhatsApp](https://wa.me/6281214580881)
 
 ---
 
