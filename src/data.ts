@@ -32,7 +32,7 @@ export const products: Product[] = [
     description: 'Sosis Ayam Geboooyku adalah sosis ayam praktis dengan rasa gurih lezat, cocok untuk cemilan dan lauk.',
     fullDescription: 'Sosis Ayam Geboooyku hadir sebagai pilihan sosis ayam berkualitas dengan cita rasa gurih dan tekstur kenyal yang disukai anak-anak hingga orang dewasa. Cocok untuk kebutuhan rumah tangga maupun pelaku usaha kuliner seperti jajanan, frozen food, hingga warung makan. Bisa digoreng, dibakar, ditumis, maupun dijadikan topping aneka menu favorit.',
     image: '/images/sosis-geboyku.webp?q=80&w=800&auto=format&fit=max',
-    packagingSize: '500g (60 Pcs)',
+    packagingSize: '1000g (60 Pcs)',
     features: ['Keluarga di Rumah', 'Pelaku UMKM', 'Cafe & Angkringan', 'Pengusaha Kuliner']
   },
   {
