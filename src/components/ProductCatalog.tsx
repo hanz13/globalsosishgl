@@ -94,7 +94,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                   : 'bg-white text-stone-600 hover:text-rose-600 border border-stone-200/60'
               }`}
             >
-              🥣 Bakso Kenyal
+              🥣 Bakso
             </button>
           </div>
 
@@ -238,7 +238,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                     <span>
                       {activeModalProduct.category === 'sosis' && '🍢 Sosis Premium'}
                       {activeModalProduct.category === 'nugget' && '🍗 Nugget Crispy'}
-                      {activeModalProduct.category === 'bakso' && '🥣 Bakso Kenyal'}
+                      {activeModalProduct.category === 'bakso' && '🥣 Bakso'}
                     </span>
                   </div>
                 </div>
