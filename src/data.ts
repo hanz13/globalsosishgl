@@ -153,5 +153,6 @@ export const contactInfo: ContactInfo = {
   email: 'globalsosishgl@gmail.com',
   phone: '+62 812-1458-0881',
   whatsappNumber: '6281214580881',
-  workingHours: 'Senin - Minggu: 05:00 - 18:00 WIB'
+  workingHours: 'Senin - Minggu: 
+  (05:00 - 18:00 WIB)'
 };
