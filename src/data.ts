@@ -142,7 +142,7 @@ export const articles: Article[] = [
     excerpt: 'Jangan salah suhu! Pelajari panduan praktis menyimpan sosis, nugget, dan bakso di freezer rumah agar kelembabannya tetap terjaga bagus.',
     content: 'Kesalahan cara menyimpan di kulkas rumah dapat menyebabkan "freezer burn", keadaan di mana kristal es merusak serat daging frozen food sehingga menjadi kering dan kehilangan rasa gurih alami. Selalu simpan produk Global Sosis Haurgeulis di suhu minimal -18 derajat Celcius. Hindari membuka-tutup wadah terlalu sering. Jika sudah dibuka, usahakan simpan kembali dalam zipper bag kedap udara, pastikan mengeluarkan seluruh udara berlebih sebelum menyegelnya kembali rapat-rapat demi menangkal datangnya bakteri luar.',
     date: '20 Mei 2026',
-    image: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1661319615776-946158744a29?q=80&w=800&auto=format&fit=crop',
     readTime: '5 Menit Membaca'
   }
 ];
