@@ -17,7 +17,7 @@ export const MediaArticles: React.FC = () => {
             <div className="flex items-center gap-2 mb-3">
               <span className="h-0.5 w-8 bg-rose-500"></span>
               <span className="text-sm font-extrabold text-rose-600 uppercase tracking-widest">
-                Media &amp; Tips Edukasi
+                Artikel &amp; Tips Edukasi
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 leading-tight">
