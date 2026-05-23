@@ -1,5 +1,3 @@
-// Header.tsx - Fixed Version
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { Category } from '../types';
@@ -19,8 +17,6 @@ export const Header: React.FC<HeaderProps> = ({
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileProductOpen, setMobileProductOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  // ✅ FIX 1: Ref for desktop dropdown wrapper — handles mouseLeave properly
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,7 +25,6 @@ export const Header: React.FC<HeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -40,21 +35,6 @@ export const Header: React.FC<HeaderProps> = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
-  ) => {
-    e.preventDefault();
-    setIsOpen(false);
-
-    if (onViewChange && currentView !== 'home') {
-      onViewChange('home');
-      setTimeout(() => scrollToId(targetId), 120);
-      return;
-    }
-    scrollToId(targetId);
-  };
 
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
@@ -67,16 +47,34 @@ export const Header: React.FC<HeaderProps> = ({
     }
   };
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    e.preventDefault();
+    setIsOpen(false);
+    if (onViewChange && currentView !== 'home') {
+      onViewChange('home');
+      setTimeout(() => scrollToId(targetId), 120);
+      return;
+    }
+    scrollToId(targetId);
+  };
+
   const handleCategoryClick = (category: Category) => {
     setIsOpen(false);
     setDropdownOpen(false);
     setMobileProductOpen(false);
-
     if (onViewChange && currentView !== 'home') onViewChange('home');
-
     onSelectCategory(category);
     setTimeout(() => scrollToId('produk'), 150);
   };
+
+  const categories: { cat: Category; emoji: string; label: string }[] = [
+    { cat: 'sosis', emoji: '\uD83C\uDF62', label: 'Sosis Premium' },
+    { cat: 'nugget', emoji: '\uD83C\uDF57', label: 'Nugget Crispy' },
+    { cat: 'bakso', emoji: '\uD83E\uDD63', label: 'Olahan Bakso' },
+  ];
 
   return (
     <header
@@ -117,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({
               Tentang Kami
             </a>
 
-            {/* ✅ FIX 1: Wrapper ref handles hover area for button + dropdown together */}
+            {/* Desktop Dropdown */}
             <div
               ref={dropdownRef}
               className="relative"
@@ -136,7 +134,6 @@ export const Header: React.FC<HeaderProps> = ({
                 />
               </button>
 
-              {/* Dropdown dengan animasi */}
               <div
                 className={`absolute left-0 mt-1 w-48 bg-white border border-stone-100 rounded-xl shadow-xl py-2 z-50 transition-all duration-200 origin-top ${
                   dropdownOpen
@@ -144,11 +141,7 @@ export const Header: React.FC<HeaderProps> = ({
                     : 'opacity-0 scale-y-95 pointer-events-none'
                 }`}
               >
-                {[
-                  { cat: 'sosis' as Category, emoji: '🍢', label: 'Sosis Premium' },
-                  { cat: 'nugget' as Category, emoji: '🍗', label: 'Nugget Crispy' },
-                  { cat: 'bakso' as Category, emoji: '🥣', label: 'Olahan Bakso' },
-                ].map(({ cat, emoji, label }) => (
+                {categories.map(({ cat, emoji, label }) => (
                   <button
                     key={cat}
                     onClick={() => handleCategoryClick(cat)}
@@ -189,7 +182,7 @@ export const Header: React.FC<HeaderProps> = ({
             </a>
           </div>
 
-          {/* ✅ FIX 3: Hamburger dengan animasi smooth pakai CSS transform */}
+          {/* Hamburger - smooth animated */}
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen((prev) => !prev)}
@@ -197,17 +190,20 @@ export const Header: React.FC<HeaderProps> = ({
               aria-expanded={isOpen}
               aria-label="Toggle navigation menu"
             >
-              {/* Icon Menu & X dengan cross-fade */}
               <span
                 className={`absolute transition-all duration-300 ${
-                  isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-50'
+                  isOpen
+                    ? 'opacity-100 rotate-0 scale-100'
+                    : 'opacity-0 rotate-90 scale-50'
                 }`}
               >
                 <X className="w-6 h-6" />
               </span>
               <span
                 className={`absolute transition-all duration-300 ${
-                  isOpen ? 'opacity-0 -rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'
+                  isOpen
+                    ? 'opacity-0 -rotate-90 scale-50'
+                    : 'opacity-100 rotate-0 scale-100'
                 }`}
               >
                 <Menu className="w-6 h-6" />
@@ -217,7 +213,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Menu — slide down smooth */}
+      {/* Mobile Menu */}
       <div
         className={`md:hidden border-t border-stone-100 bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
@@ -232,7 +228,7 @@ export const Header: React.FC<HeaderProps> = ({
             Tentang Kami
           </a>
 
-          {/* ✅ FIX 2: Mobile Product Dropdown dengan toggle */}
+          {/* Mobile Product Toggle */}
           <div>
             <button
               onClick={() => setMobileProductOpen((prev) => !prev)}
@@ -246,18 +242,13 @@ export const Header: React.FC<HeaderProps> = ({
               />
             </button>
 
-            {/* Sub-menu kategori dengan animasi */}
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
                 mobileProductOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
               <div className="pl-3 mt-1 space-y-1 pb-1">
-                {[
-                  { cat: 'sosis' as Category, emoji: '🍢', label: 'Sosis Premium' },
-                  { cat: 'nugget' as Category, emoji: '🍗', label: 'Nugget Ayam' },
-                  { cat: 'bakso' as Category, emoji: '🥣', label: 'Olahan Bakso' },
-                ].map(({ cat, emoji, label }) => (
+                {categories.map(({ cat, emoji, label }) => (
                   <button
                     key={cat}
                     onClick={() => handleCategoryClick(cat)}
@@ -275,7 +266,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={(e) => handleNavClick(e, 'media-artikel')}
             className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
           >
-            Media & Artikel
+            Media &amp; Artikel
           </a>
 
           
@@ -293,7 +284,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="w-full text-center flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-4 py-3 rounded-xl text-base font-bold shadow-md transition-all"
             >
               <Phone className="w-5 h-5" />
-              Order Sekarang
+              ORDER SEKARANG!
             </a>
           </div>
         </div>
