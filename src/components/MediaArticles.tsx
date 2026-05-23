@@ -10,18 +10,18 @@ export const MediaArticles: React.FC = () => {
   return (
     <section id="media-artikel" className="py-20 bg-stone-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Title Block */}
         <div className="mb-12 text-left space-y-4">
           <div className="max-w-xl">
             <div className="flex items-center gap-2 mb-3">
               <span className="h-0.5 w-8 bg-rose-500"></span>
               <span className="text-sm font-extrabold text-rose-600 uppercase tracking-widest">
-                Media & Tips Edukasi
+                Media &amp; Tips Edukasi
               </span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 leading-tight">
-              Kabar Terbaru & Tips Kuliner Menarik
+              Kabar Terbaru &amp; Tips Kuliner Menarik
             </h2>
           </div>
           <p className="text-stone-500 text-sm sm:text-base max-w-2xl leading-relaxed">
@@ -44,7 +44,6 @@ export const MediaArticles: React.FC = () => {
                 }
               }}
             >
-              
               {/* Image banner */}
               <div className="relative aspect-video bg-stone-100 overflow-hidden">
                 <img
@@ -53,8 +52,6 @@ export const MediaArticles: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                
-                {/* Book indicator floating badge */}
                 <div className="absolute bottom-3 right-3 bg-stone-900/90 backdrop-blur-sm text-white font-extrabold text-[10px] tracking-wider uppercase px-2.5 py-1.5 rounded-lg border border-white/10 flex items-center gap-1">
                   <BookOpen className="w-3.5 h-3.5" />
                   Tips Olahan
@@ -64,8 +61,6 @@ export const MediaArticles: React.FC = () => {
               {/* Content body layout */}
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <div>
-                  
-                  {/* Micro Metadata (Date & Read time) */}
                   <div className="flex items-center gap-4 text-[11px] font-semibold text-stone-400 uppercase tracking-wider mb-2.5">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
@@ -76,18 +71,13 @@ export const MediaArticles: React.FC = () => {
                       {article.readTime}
                     </span>
                   </div>
-
-                  {/* Title & Excerpt */}
                   <h3 className="font-serif text-lg font-bold text-stone-800 leading-snug group-hover:text-rose-600 transition-colors line-clamp-2">
                     {article.title}
                   </h3>
                   <p className="mt-2.5 text-stone-500 text-xs sm:text-sm leading-relaxed line-clamp-3">
                     {article.excerpt}
                   </p>
-
                 </div>
-
-                {/* Read item anchor trigger */}
                 <div className="mt-5 pt-4 border-t border-stone-100 flex items-center justify-between">
                   <span className="text-xs font-bold text-stone-700 group-hover:text-rose-600 transition-colors">
                     Baca Selengkapnya
@@ -96,25 +86,24 @@ export const MediaArticles: React.FC = () => {
                     <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>
-
               </div>
-
             </article>
           ))}
         </div>
 
-        {/* Dynamic Interactive Reading Modal Popup */}
+        {/* Modal */}
         {activeModalArticle && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/70 backdrop-blur-sm animate-fade-in"
             onClick={() => setActiveModalArticle(null)}
           >
+            {/* FIX: flex flex-col — modal dibagi 3 layer, overflow dihandle per-layer */}
             <div
-              className="bg-white rounded-3xl overflow-hidden shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto relative animate-scale-up border border-stone-100"
+              className="bg-white rounded-3xl overflow-hidden shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col relative animate-scale-up border border-stone-100"
               onClick={(e) => e.stopPropagation()}
             >
-              
-              {/* Close Button top-right */}
+
+              {/* Close Button */}
               <button
                 onClick={() => setActiveModalArticle(null)}
                 className="absolute top-4 right-4 z-10 p-2 text-stone-500 hover:text-stone-800 hover:bg-stone-100 rounded-full bg-white/90 backdrop-blur-sm transition-colors cursor-pointer"
@@ -123,8 +112,8 @@ export const MediaArticles: React.FC = () => {
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Cover Image banner */}
-              <div className="relative h-64 sm:h-72 w-full bg-stone-100">
+              {/* Cover Image — fixed height */}
+              <div className="relative h-64 sm:h-72 w-full bg-stone-100 flex-shrink-0">
                 <img
                   src={activeModalArticle.image}
                   alt={activeModalArticle.title}
@@ -143,10 +132,8 @@ export const MediaArticles: React.FC = () => {
                 </div>
               </div>
 
-               {/* Article content detail */}
-              <div className="p-6 sm:p-8">
-                
-                {/* Meta details list */}
+              {/* Konten artikel — flex-1 + overflow-y-auto, hanya bagian ini yang scroll */}
+              <div className="p-6 sm:p-8 overflow-y-auto flex-1">
                 <div className="flex flex-wrap items-center gap-4 sm:gap-5 text-xs text-stone-400 border-b border-stone-100 pb-4 mb-4 font-semibold uppercase tracking-wider">
                   <span className="flex items-center gap-1.5 text-rose-600">
                     <User className="w-4 h-4" />
@@ -162,69 +149,10 @@ export const MediaArticles: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Main Markdown / Text content parsed nicely */}
                 <p className="text-stone-700 text-sm sm:text-base leading-relaxed whitespace-pre-wrap font-normal mb-8">
                   {activeModalArticle.content}
                 </p>
 
-                {/* Interactive Article Sharing Row */}
-                <div className="border-t border-stone-100 pt-6 mb-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div className="flex items-center gap-2">
-                      <Share2 className="w-4 h-4 text-rose-600" />
-                      <span className="text-xs font-extrabold text-stone-600 uppercase tracking-wider">
-                        Bagikan Ke Media Sosial:
-                      </span>
-                    </div>
-                    
-                    <div className="flex flex-wrap items-center gap-2">
-                      {/* WhatsApp Share Link */}
-                      <a
-                        href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`Yuk baca artikel "${activeModalArticle.title}" oleh Admin Global Sosis Haurgeulis: ${window.location.href}`)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-emerald-100 transition-all active:scale-95 duration-200"
-                      >
-                        WhatsApp
-                      </a>
-                      
-                      {/* Facebook Share Link */}
-                      <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-blue-100 transition-all active:scale-95 duration-200"
-                      >
-                        Facebook
-                      </a>
-                      
-                      {/* Twitter Share Link */}
-                      <a
-                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Menarik banget! Baca "${activeModalArticle.title}" oleh Admin Global Sosis:`)}&url=${encodeURIComponent(window.location.href)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-stone-50 hover:bg-stone-100 text-stone-800 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-stone-200 transition-all active:scale-95 duration-200"
-                      >
-                        Twitter/X
-                      </a>
-                      
-                      {/* Interactive Clipboard Copier */}
-                      <button
-                        onClick={() => {
-                          const articleUrl = window.location.href;
-                          navigator.clipboard.writeText(articleUrl);
-                          setCopied(true);
-                          setTimeout(() => setCopied(false), 2000);
-                        }}
-                        className="bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-rose-100 transition-all active:scale-95 duration-200 cursor-pointer"
-                      >
-                        {copied ? 'Tersalin! ✓' : 'Salin Tautan'}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer close button */}
                 <div className="pt-2 text-right">
                   <button
                     onClick={() => setActiveModalArticle(null)}
@@ -233,7 +161,54 @@ export const MediaArticles: React.FC = () => {
                     Tutup Artikel
                   </button>
                 </div>
+              </div>
 
+              {/* Share section — flex-shrink-0, sticky di bawah, tidak ikut scroll */}
+              <div className="border-t border-stone-100 px-6 py-4 bg-white flex-shrink-0">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <Share2 className="w-4 h-4 text-rose-600" />
+                    <span className="text-xs font-extrabold text-stone-600 uppercase tracking-wider">
+                      Bagikan Ke Media Sosial:
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <a
+                      href={`https://api.whatsapp.com/send?text=${encodeURIComponent('Yuk baca artikel "' + activeModalArticle.title + '" oleh Admin Global Sosis Haurgeulis: ' + window.location.href)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-emerald-100 transition-all active:scale-95 duration-200"
+                    >
+                      WhatsApp
+                    </a>
+                    <a
+                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-blue-100 transition-all active:scale-95 duration-200"
+                    >
+                      Facebook
+                    </a>
+                    <a
+                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Menarik banget! Baca "' + activeModalArticle.title + '" oleh Admin Global Sosis:')}&url=${encodeURIComponent(window.location.href)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-stone-50 hover:bg-stone-100 text-stone-800 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-stone-200 transition-all active:scale-95 duration-200"
+                    >
+                      Twitter/X
+                    </a>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(window.location.href);
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                      }}
+                      className="bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-rose-100 transition-all active:scale-95 duration-200 cursor-pointer"
+                    >
+                      {copied ? 'Tersalin! ✓' : 'Salin Tautan'}
+                    </button>
+                  </div>
+                </div>
               </div>
 
             </div>
