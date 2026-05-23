@@ -58,7 +58,7 @@ export const MediaArticles: React.FC = () => {
                 </div>
               </div>
 
-              {/* Content body layout */}
+              {/* Content body */}
               <div className="p-6 flex-grow flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-4 text-[11px] font-semibold text-stone-400 uppercase tracking-wider mb-2.5">
@@ -97,9 +97,9 @@ export const MediaArticles: React.FC = () => {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/70 backdrop-blur-sm animate-fade-in"
             onClick={() => setActiveModalArticle(null)}
           >
-            {/* FIX: flex flex-col — modal dibagi 3 layer, overflow dihandle per-layer */}
+            {/* Modal: flex flex-col, NO overflow-hidden di wrapper agar share section tidak terpotong */}
             <div
-              className="bg-white rounded-3xl overflow-hidden shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col relative animate-scale-up border border-stone-100"
+              className="bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col relative animate-scale-up border border-stone-100"
               onClick={(e) => e.stopPropagation()}
             >
 
@@ -112,8 +112,8 @@ export const MediaArticles: React.FC = () => {
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Cover Image — fixed height */}
-              <div className="relative h-64 sm:h-72 w-full bg-stone-100 flex-shrink-0">
+              {/* Cover Image — fixed height, flex-shrink-0 */}
+              <div className="relative h-56 sm:h-72 w-full bg-stone-100 flex-shrink-0 rounded-t-3xl overflow-hidden">
                 <img
                   src={activeModalArticle.image}
                   alt={activeModalArticle.title}
@@ -132,7 +132,7 @@ export const MediaArticles: React.FC = () => {
                 </div>
               </div>
 
-              {/* Konten artikel — flex-1 + overflow-y-auto, hanya bagian ini yang scroll */}
+              {/* Konten artikel — flex-1, hanya bagian ini yang scroll */}
               <div className="p-6 sm:p-8 overflow-y-auto flex-1">
                 <div className="flex flex-wrap items-center gap-4 sm:gap-5 text-xs text-stone-400 border-b border-stone-100 pb-4 mb-4 font-semibold uppercase tracking-wider">
                   <span className="flex items-center gap-1.5 text-rose-600">
@@ -163,51 +163,50 @@ export const MediaArticles: React.FC = () => {
                 </div>
               </div>
 
-              {/* Share section — flex-shrink-0, sticky di bawah, tidak ikut scroll */}
-              <div className="border-t border-stone-100 px-6 py-4 bg-white flex-shrink-0">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
-                    <Share2 className="w-4 h-4 text-rose-600" />
-                    <span className="text-xs font-extrabold text-stone-600 uppercase tracking-wider">
-                      Bagikan Ke Media Sosial:
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <a
-                      href={`https://api.whatsapp.com/send?text=${encodeURIComponent('Yuk baca artikel "' + activeModalArticle.title + '" oleh Admin Global Sosis Haurgeulis: ' + window.location.href)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-emerald-100 transition-all active:scale-95 duration-200"
-                    >
-                      WhatsApp
-                    </a>
-                    <a
-                      href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-blue-50 hover:bg-blue-100 text-blue-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-blue-100 transition-all active:scale-95 duration-200"
-                    >
-                      Facebook
-                    </a>
-                    <a
-                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Menarik banget! Baca "' + activeModalArticle.title + '" oleh Admin Global Sosis:')}&url=${encodeURIComponent(window.location.href)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-stone-50 hover:bg-stone-100 text-stone-800 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-stone-200 transition-all active:scale-95 duration-200"
-                    >
-                      Twitter/X
-                    </a>
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(window.location.href);
-                        setCopied(true);
-                        setTimeout(() => setCopied(false), 2000);
-                      }}
-                      className="bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] px-3 py-1.5 rounded-lg border border-rose-100 transition-all active:scale-95 duration-200 cursor-pointer"
-                    >
-                      {copied ? 'Tersalin! ✓' : 'Salin Tautan'}
-                    </button>
-                  </div>
+              {/* Share section — flex-shrink-0, selalu di bawah, tidak ikut scroll */}
+              <div className="border-t border-stone-100 px-6 py-4 bg-white flex-shrink-0 rounded-b-3xl">
+                <div className="flex items-center gap-2 mb-3">
+                  <Share2 className="w-4 h-4 text-rose-600" />
+                  <span className="text-xs font-extrabold text-stone-600 uppercase tracking-wider">
+                    Bagikan Ke Media Sosial:
+                  </span>
+                </div>
+                {/* Grid 2 kolom di mobile, 4 kolom di desktop — semua tombol pasti muncul */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <a
+                    href={`https://api.whatsapp.com/send?text=${encodeURIComponent('Yuk baca artikel "' + activeModalArticle.title + '" oleh Admin Global Sosis Haurgeulis: ' + window.location.href)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-extrabold text-[11px] px-3 py-2 rounded-lg border border-emerald-100 transition-all active:scale-95"
+                  >
+                    WhatsApp
+                  </a>
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center bg-blue-50 hover:bg-blue-100 text-blue-700 font-extrabold text-[11px] px-3 py-2 rounded-lg border border-blue-100 transition-all active:scale-95"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent('Menarik banget! Baca "' + activeModalArticle.title + '" oleh Admin Global Sosis:')}&url=${encodeURIComponent(window.location.href)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center bg-stone-50 hover:bg-stone-100 text-stone-800 font-extrabold text-[11px] px-3 py-2 rounded-lg border border-stone-200 transition-all active:scale-95"
+                  >
+                    Twitter/X
+                  </a>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(window.location.href);
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 2000);
+                    }}
+                    className="text-center bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] px-3 py-2 rounded-lg border border-rose-100 transition-all active:scale-95 cursor-pointer"
+                  >
+                    {copied ? 'Tersalin! ✓' : 'Salin Tautan'}
+                  </button>
                 </div>
               </div>
 
