@@ -71,7 +71,7 @@ export const products: Product[] = [
     category: 'nugget',
     description: 'Nugget ayam keemasan dengan isian keju cheddar lumer melimpah di setiap gigitannya.',
     fullDescription: 'Nugget ayam premium dengan rahasia kelezatan di dalamnya: keju cheddar lumer berkualitas tinggi. Saat digoreng hangat, keju di dalam nugget akan meleleh sempurna. Perpaduan asin gurih keju yang meleleh dengan renyahnya permukaan luar nugget ayam ini dijamin membuat ketagihan.',
-    image: '/images/naget-okey.webp?q=80&w=800&auto=format&fit=crop',
+    image: '/images/naget-okey.webp?q=80&w=800&auto=format',
     packagingSize: '500g (Sekitar 40 Pcs)',
     features: ['Pedagang Rumahan', 'Cafe & Angkringan', 'Reseller Frozen Food', 'UMKM Kuliner']
   },
