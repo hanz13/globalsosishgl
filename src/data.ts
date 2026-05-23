@@ -57,7 +57,7 @@ export const products: Product[] = [
   },
   {
     id: 'nugget-1',
-    name: 'Nugget Chicken Bubble Premium',
+    name: 'Nugget Chicken Slice',
     category: 'nugget',
     description: 'Nugget ayam berlapis bubble crumbs super renyah ekstra crispy yang tahan lama.',
     fullDescription: 'Inovasi pelapis bubble crumb eksklusif yang memberikan kegaringan luar biasa tahan lama. Di bagian dalam, terdapat adonan daging ayam utuh cincang kasar yang sangat gurih, basah, dan berserat alami. Setiap gigitan adalah perjalanan tekstur dari garing luar biasa hingga kelembutan ayam premium.',
@@ -77,7 +77,7 @@ export const products: Product[] = [
   },
   {
     id: 'nugget-3',
-    name: 'Nugget Classic Crispy Gold',
+    name: 'Nugget Ayam Crispy',
     category: 'nugget',
     description: 'Nugget ayam bentuk koin klasik berlapis tepung roti keemasan, kaya gizi dan praktis.',
     fullDescription: 'Formulasi resep klasik yang disempurnakan sejak berdirinya Global Sosis Haurgeulis. Menggunakan potongan dada ayam padat berprotein tinggi yang dicampur halus dengan bawang bombay segar, lada putih Bangka, dan tepung roti keemasan bermutu tinggi. Sangat praktis sebagai bekal sekolah anak maupun menu sarapan kilat.',
@@ -151,7 +151,7 @@ export const contactInfo: ContactInfo = {
   address: 'Global Sosis Haurgeulis, Kec. Haurgeulis, Kabupaten Indramayu, Jawa Barat 45264, Indonesia',
   googleMapsEmbedUrl: 'https://maps.google.com/maps?q=Global%20Sosis%20Haurgeulis%20Haurgeulis%20Indramayu&t=&z=16&ie=UTF8&iwloc=&output=embed',
   email: 'globalsosishgl@gmail.com',
-  phone: '+62 812-3456-7890',
-  whatsappNumber: '6281234567890',
+  phone: '+62 812-1458-0881',
+  whatsappNumber: '6281214580881',
   workingHours: 'Senin - Minggu: 05:00 - 18:00 WIB'
 };
