@@ -266,7 +266,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={(e) => handleNavClick(e, 'media-artikel')}
             className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
           >
-            {'Media &amp; Artikel'}
+            {'Media & Artikel'}
           </a>
 
           <a
