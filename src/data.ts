@@ -69,10 +69,10 @@ export const products: Product[] = [
     id: 'nugget-2',
     name: 'Stik Nugget Ayam Okey',
     category: 'nugget',
-    description: 'Nugget ayam keemasan dengan isian keju cheddar lumer melimpah di setiap gigitannya.',
-    fullDescription: 'Nugget ayam premium dengan rahasia kelezatan di dalamnya: keju cheddar lumer berkualitas tinggi. Saat digoreng hangat, keju di dalam nugget akan meleleh sempurna. Perpaduan asin gurih keju yang meleleh dengan renyahnya permukaan luar nugget ayam ini dijamin membuat ketagihan.',
+    description: 'Naget Okey Stick hadir sebagai pilihan nugget ayam praktis dengan bentuk stik yang unik dan disukai semua kalangan, terutama anak-anak hingga pelaku usaha jajanan.',
+    fullDescription: 'Dibuat dari kombinasi daging ayam berkualitas dengan lapisan tepung renyah, menghasilkan rasa gurih lezat dan tekstur crispy saat digoreng. Sangat cocok dijadikan menu camilan, lauk, hingga ide jualan kekinian. Produk ini mudah diolah serta hemat waktu, cukup digoreng beberapa menit hingga matang dan siap disajikan.',
     image: '/images/naget-okey.webp?q=80&w=800&auto=format',
-    packagingSize: '500g (Sekitar 40 Pcs)',
+    packagingSize: '500g (40 Pcs)',
     features: ['Pedagang Rumahan', 'Cafe & Angkringan', 'Reseller Frozen Food', 'UMKM Kuliner']
   },
   {
@@ -82,7 +82,7 @@ export const products: Product[] = [
     description: 'Nugget ayam bentuk koin klasik berlapis tepung roti keemasan, kaya gizi dan praktis.',
     fullDescription: 'Formulasi resep klasik yang disempurnakan sejak berdirinya Global Sosis Haurgeulis. Menggunakan potongan dada ayam padat berprotein tinggi yang dicampur halus dengan bawang bombay segar, lada putih Bangka, dan tepung roti keemasan bermutu tinggi. Sangat praktis sebagai bekal sekolah anak maupun menu sarapan kilat.',
     image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=800&auto=format&fit=crop',
-    packagingSize: '500g (Sekitar 22 Pcs)',
+    packagingSize: '500g (22 Pcs)',
     features: ['Resep Warisan Legendaris', 'Aroma Bawang Bombay Segar', 'Kemasan Zipper Lock Praktis', 'Kandungan Protein Tinggi']
   },
   {
