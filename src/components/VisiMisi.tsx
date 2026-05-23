@@ -34,7 +34,7 @@ export const VisiMisi: React.FC = () => {
             Visi &amp; Misi
           </h1>
           <p className="text-stone-500 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Komitmen kami dalam menjadi distributor frozen food terpercaya yang mendukung pertumbuhan usaha masyarakat dan pedagang lokal di sekitar Haurgeulis.
+            Komitmen kami dalam menjadi distributor frozen food terpercaya yang mendukung pertumbuhan usaha masyarakat dan pedagang lokal di Haurgeulis.
           </p>
         </div>
 
