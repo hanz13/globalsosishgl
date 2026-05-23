@@ -122,9 +122,7 @@ export const MediaArticles: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 flex items-end">
                   <div className="p-6">
-                    <span className="text-rose-400 text-xs font-bold uppercase tracking-widest">
-                      Dapur Inspirasi Global Sosis
-                    </span>
+                    
                     <h3 className="font-serif text-xl sm:text-2xl font-extrabold text-white mt-1 leading-tight">
                       {activeModalArticle.title}
                     </h3>
