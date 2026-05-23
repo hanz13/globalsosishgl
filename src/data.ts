@@ -27,13 +27,13 @@ export const slides: Slide[] = [
 export const products: Product[] = [
   {
     id: 'sosis-1',
-    name: 'Sosis Bakar Jumbo Premium',
+    name: 'Sosis Ayam Geboooyku',
     category: 'sosis',
-    description: 'Sosis sapi bakar ukuran besar dengan rempah premium, kulit ramah konsumsi, rasa smokey yang kuat.',
-    fullDescription: 'Diciptakan khusus untuk para pencinta panggangan. Sosis Bakar Jumbo Premium memiliki tekstur padat dengan rasa daging sapi yang sangat dominan. Menggunakan casing kolagen alami bermutu tinggi yang aman langsung dimakan dan memberikan sensasi "snap" renyah saat digigit. Sangat cocok untuk sosis bakar bumbu barbeque, isian hotdog, maupun tumisan mewah.',
-    image: 'https://plus.unsplash.com/premium_photo-1726876928901-dec6dcfb7748?q=80&w=800&auto=format&fit=crop',
-    packagingSize: '500g (5 Pcs / Pack)',
-    features: ['100% Halal Certified', 'Casing Kolagen Alami', 'Ekstra Rempah Eropa & Lokal', 'Tanpa Pewarna Kimia']
+    description: 'Sosis Ayam Geboooyku adalah sosis ayam praktis dengan rasa gurih lezat, cocok untuk cemilan dan lauk.',
+    fullDescription: 'Sosis Ayam Geboooyku hadir sebagai pilihan sosis ayam berkualitas dengan cita rasa gurih dan tekstur kenyal yang disukai anak-anak hingga orang dewasa. Cocok untuk kebutuhan rumah tangga maupun pelaku usaha kuliner seperti jajanan, frozen food, hingga warung makan. Bisa digoreng, dibakar, ditumis, maupun dijadikan topping aneka menu favorit.',
+    image: '/images/sosis-geboyku.webp?q=80&w=800&auto=format&fit=max',
+    packagingSize: '500g (60 Pcs)',
+    features: ['Keluarga di Rumah', 'Pelaku UMKM', 'Cafe & Angkringan', 'Pengusaha Kuliner']
   },
   {
     id: 'sosis-2',
