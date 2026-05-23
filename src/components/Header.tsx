@@ -4,8 +4,8 @@ import { Category } from '../types';
 
 interface HeaderProps {
   onSelectCategory: (category: Category) => void;
-  onViewChange?: (view: 'home' | 'privacy' | 'terms') => void;
-  currentView?: 'home' | 'privacy' | 'terms';
+  onViewChange?: (view: 'home' | 'privacy' | 'terms' | 'visi-misi') => void;
+  currentView?: 'home' | 'privacy' | 'terms' | 'visi-misi';
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -15,9 +15,12 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [mobileProductOpen, setMobileProductOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const aboutDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -30,6 +33,7 @@ export const Header: React.FC<HeaderProps> = ({
       if (window.innerWidth >= 768) {
         setIsOpen(false);
         setMobileProductOpen(false);
+        setMobileAboutOpen(false);
       }
     };
     window.addEventListener('resize', handleResize);
@@ -70,6 +74,26 @@ export const Header: React.FC<HeaderProps> = ({
     setTimeout(() => scrollToId('produk'), 150);
   };
 
+  const handleGoToTentangKami = () => {
+    setIsOpen(false);
+    setAboutDropdownOpen(false);
+    setMobileAboutOpen(false);
+    if (onViewChange && currentView !== 'home') {
+      onViewChange('home');
+      setTimeout(() => scrollToId('tentang-kami'), 120);
+    } else {
+      scrollToId('tentang-kami');
+    }
+  };
+
+  const handleGoToVisiMisi = () => {
+    setIsOpen(false);
+    setAboutDropdownOpen(false);
+    setMobileAboutOpen(false);
+    if (onViewChange) onViewChange('visi-misi');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const categories: { cat: Category; emoji: string; label: string }[] = [
     { cat: 'sosis', emoji: String.fromCodePoint(0x1F362), label: 'Sosis Premium' },
     { cat: 'nugget', emoji: String.fromCodePoint(0x1F357), label: 'Nugget Crispy' },
@@ -107,15 +131,57 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2" id="desktop-nav">
-            <a
-              href="#about"
-              onClick={(e) => handleNavClick(e, 'tentang-kami')}
-              className="px-4 py-2 text-sm font-medium text-stone-700 hover:text-rose-600 rounded-lg hover:bg-stone-50 transition-all"
-            >
-              Tentang Kami
-            </a>
 
-            {/* Desktop Dropdown */}
+            {/* Tentang Kami Dropdown */}
+            <div
+              ref={aboutDropdownRef}
+              className="relative"
+              onMouseEnter={() => setAboutDropdownOpen(true)}
+              onMouseLeave={() => setAboutDropdownOpen(false)}
+            >
+              <button
+                onClick={() => setAboutDropdownOpen((prev) => !prev)}
+                className={`px-4 py-2 text-sm font-medium rounded-lg flex items-center gap-1 transition-all ${
+                  currentView === 'visi-misi'
+                    ? 'text-rose-600 bg-rose-50'
+                    : 'text-stone-700 hover:text-rose-600 hover:bg-stone-50'
+                }`}
+              >
+                Tentang Kami
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    aboutDropdownOpen ? 'rotate-180' : 'rotate-0'
+                  }`}
+                />
+              </button>
+
+              <div
+                className={`absolute left-0 mt-1 w-48 bg-white border border-stone-100 rounded-xl shadow-xl py-2 z-50 transition-all duration-200 origin-top ${
+                  aboutDropdownOpen
+                    ? 'opacity-100 scale-y-100 pointer-events-auto'
+                    : 'opacity-0 scale-y-95 pointer-events-none'
+                }`}
+              >
+                <button
+                  onClick={handleGoToTentangKami}
+                  className="w-full text-left px-4 py-2.5 text-sm text-stone-700 hover:text-rose-600 hover:bg-rose-50/60 font-medium transition-colors"
+                >
+                  Profil Perusahaan
+                </button>
+                <button
+                  onClick={handleGoToVisiMisi}
+                  className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors ${
+                    currentView === 'visi-misi'
+                      ? 'text-rose-600 bg-rose-50/60'
+                      : 'text-stone-700 hover:text-rose-600 hover:bg-rose-50/60'
+                  }`}
+                >
+                  Visi &amp; Misi
+                </button>
+              </div>
+            </div>
+
+            {/* Produk Dropdown */}
             <div
               ref={dropdownRef}
               className="relative"
@@ -216,19 +282,51 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Mobile Menu */}
       <div
         className={`md:hidden border-t border-stone-100 bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <div className="px-4 pt-3 pb-6 space-y-2">
-          <a
-            href="#about"
-            onClick={(e) => handleNavClick(e, 'tentang-kami')}
-            className="block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
-          >
-            Tentang Kami
-          </a>
 
-          {/* Mobile Product Toggle */}
+          {/* Mobile Tentang Kami Toggle */}
+          <div>
+            <button
+              onClick={() => setMobileAboutOpen((prev) => !prev)}
+              className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-base font-semibold text-stone-700 hover:bg-rose-50 hover:text-rose-600 transition-all"
+            >
+              <span>Tentang Kami</span>
+              <ChevronDown
+                className={`w-4 h-4 transition-transform duration-300 ${
+                  mobileAboutOpen ? 'rotate-180' : 'rotate-0'
+                }`}
+              />
+            </button>
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                mobileAboutOpen ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="pl-3 mt-1 space-y-1 pb-1">
+                <button
+                  onClick={handleGoToTentangKami}
+                  className="w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold text-stone-600 hover:bg-rose-50 hover:text-rose-600 transition-all"
+                >
+                  Profil Perusahaan
+                </button>
+                <button
+                  onClick={handleGoToVisiMisi}
+                  className={`w-full text-left block px-3 py-2 rounded-xl text-sm font-semibold transition-all ${
+                    currentView === 'visi-misi'
+                      ? 'bg-rose-50 text-rose-600'
+                      : 'text-stone-600 hover:bg-rose-50 hover:text-rose-600'
+                  }`}
+                >
+                  Visi &amp; Misi
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Produk Toggle */}
           <div>
             <button
               onClick={() => setMobileProductOpen((prev) => !prev)}
@@ -241,7 +339,6 @@ export const Header: React.FC<HeaderProps> = ({
                 }`}
               />
             </button>
-
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
                 mobileProductOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'

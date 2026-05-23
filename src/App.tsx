@@ -8,11 +8,12 @@ import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsAndConditions } from './components/TermsAndConditions';
+import { VisiMisi } from './components/VisiMisi';
 import { Category } from './types';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState<Category | 'all'>('all');
-  const [currentView, setCurrentView] = useState<'home' | 'privacy' | 'terms'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'privacy' | 'terms' | 'visi-misi'>('home');
 
   const handleCategorySelectFromHeader = (category: Category) => {
     setSelectedCategory(category);
@@ -29,8 +30,8 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col justify-between selection:bg-rose-600 selection:text-white">
       {/* Sticky Header Navigation bar */}
-      <Header 
-        onSelectCategory={handleCategorySelectFromHeader} 
+      <Header
+        onSelectCategory={handleCategorySelectFromHeader}
         onViewChange={setCurrentView}
         currentView={currentView}
       />
@@ -62,6 +63,10 @@ export default function App() {
 
         {currentView === 'terms' && (
           <TermsAndConditions onBackToHome={handleBackToHome} />
+        )}
+
+        {currentView === 'visi-misi' && (
+          <VisiMisi />
         )}
       </main>
 
