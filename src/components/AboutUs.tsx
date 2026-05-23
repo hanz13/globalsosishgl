@@ -52,11 +52,6 @@ export const AboutUs: React.FC = () => {
               </span>
             </div>
 
-            {/* Headline Title */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 leading-tight tracking-tight">
-              Dedikasi Rasa Terbaik Untuk Hidangan Istimewa Keluarga Anda
-            </h2>
-
             {/* Explanation paragraph */}
             <p className="mt-6 text-stone-600 leading-relaxed text-sm sm:text-base">
               <strong>Global Sosis Haurgeulis</strong> adalah distributor produk olahan frozen food yang telah berdiri sejak tahun 2008 di wilayah Haurgeulis, Indramayu. Berlokasi strategis tepat di depan Kantor Polsek Haurgeulis, kami hadir menjadi salah satu pusat kebutuhan frozen food terpercaya bagi masyarakat, pedagang, hingga pelaku usaha kuliner.
