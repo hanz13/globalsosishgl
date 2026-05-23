@@ -26,7 +26,7 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
             <div>
               <div className="flex items-center gap-3 mb-4 animate-fade-in">
                 <img
-                  src="/images/transparent.png"
+                  src="/images/logo.webp"
                   alt="Global Sosis Haurgeulis"
                   referrerPolicy="no-referrer"
                   className="h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"

@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
             id="brand-logo"
           >
             <img
-              src="/images/transparent.png"
+              src="/images/logo.webp"
               alt="Global Sosis Haurgeulis"
               className="h-16"
             />
