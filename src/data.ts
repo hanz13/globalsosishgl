@@ -52,7 +52,7 @@ export const products: Product[] = [
     description: 'Sosis Bakar Salam merupakan sosis kombinasi ayam dan sapi dengan cita rasa gurih smoky khas bakaran.',
     fullDescription: 'Sosis Bakar Salam hadir sebagai pilihan sosis premium dengan perpaduan daging ayam dan sapi yang menghasilkan rasa gurih lezat dan aroma bakaran yang menggugah selera. Memiliki tekstur kenyal dan juicy, sosis ini cocok disajikan untuk berbagai menu favorit seperti sosis bakar, hotdog, rice bowl, hingga aneka jajanan kekinian.',
     image: '/images/sosis-bakar-salaam.webp?q=80&w=800&auto=format&fit=max',
-    packagingSize: '400g (12 Pcs / Pack)',
+    packagingSize: '500g (12 Pcs)',
     features: ['Cafe & Angkringan', 'UMKM Kuliner', 'Konsumsi Keluarga', 'Reseller Frozen Food']
   },
   {
@@ -92,7 +92,7 @@ export const products: Product[] = [
     description: 'Bakso Warisan 319 adalah bakso daging sapi dengan cita rasa gurih khas dan tekstur kenyal.',
     fullDescription: 'Bakso Warisan 319 hadir dengan cita rasa bakso daging sapi yang kaya rasa dan nikmat. Dibuat dari bahan berkualitas dengan resep pilihan untuk menghasilkan tekstur bakso yang kenyal, padat, dan gurih di setiap gigitan. Cocok untuk berbagai kebutuhan kuliner, mulai dari sajian bakso kuah rumahan hingga kebutuhan usaha seperti warung bakso, mie ayam, catering, dan frozen food.',
     image: '/images/bakso-warisan.webp?q=80&w=800&auto=format&fit=max',
-    packagingSize: '50 Pcs + Bumbu Kaldu Instan',
+    packagingSize: '500g (50 Pcs)',
     features: ['Pedagang Bakso', 'Catering', 'Cafe & Angkringan', 'Konsumsi Keluarga']
   },
   {
