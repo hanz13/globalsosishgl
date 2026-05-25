@@ -23,7 +23,7 @@ export const AboutUs: React.FC = () => {
               {/* Halal Badge Overlay */}
               <div className="absolute bottom-4 left-4 bg-emerald-600 border border-emerald-500 text-white text-[11px] font-bold tracking-wider uppercase px-4 py-2 rounded-xl shadow-lg flex items-center gap-1.5 backdrop-blur-sm bg-emerald-600/90">
                 <span className="w-2.5 h-2.5 bg-white rounded-full flex items-center justify-center text-emerald-600 text-[8px]">✓</span>
-                100% Halal MUI & BPOM
+                100% Halal MUI, BPJPH & BPOM
               </div>
             </div>
 
@@ -33,10 +33,10 @@ export const AboutUs: React.FC = () => {
                 <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-rose-600">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Garansi Return</span>
+                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Garansi/Return</span>
               </div>
               <p className="text-sm font-bold text-stone-800 leading-tight">
-                Kemasan Rusak, dan Isi Berubah Rasa.
+                Kemasan Segel Rusak, dan Isi Berubah Rasa.
               </p>
             </div>
           </div>
