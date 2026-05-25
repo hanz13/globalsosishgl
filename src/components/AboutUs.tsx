@@ -33,7 +33,7 @@ export const AboutUs: React.FC = () => {
                 <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-rose-600">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Garansi & Return Produk</span>
+                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Garansi & Return Produk Kami</span>
               </div>
               <p className="text-sm font-bold text-stone-800 leading-tight">
                 Kemasan Segel Rusak dan Isi Berubah Rasa.
