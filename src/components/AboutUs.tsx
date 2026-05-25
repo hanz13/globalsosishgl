@@ -36,7 +36,7 @@ export const AboutUs: React.FC = () => {
                 <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Garansi & Return</span>
               </div>
               <p className="text-sm font-bold text-stone-800 leading-tight">
-                KEMASAN SEGEL RUSAK DAN ISI BERUBAH RASA.
+                Kemasan Segel Rusak dan Isi Berubah Rasa.
               </p>
             </div>
           </div>
