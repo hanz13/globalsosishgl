@@ -73,7 +73,7 @@ export const AboutUs: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-stone-900 text-sm sm:text-base">Dipercaya Sejak 2008</h3>
-                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Toko kami sudah dipercaya oleh pelanggan sejak tahun 2008 hingga kini.</p>
+                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Toko kami sudah dipercaya oleh ribuan pelanggan sejak tahun 2008 hingga kini.</p>
                 </div>
               </div>
 
