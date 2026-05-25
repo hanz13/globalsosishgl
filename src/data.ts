@@ -73,7 +73,7 @@ export const products: Product[] = [
     fullDescription: 'Dibuat dari kombinasi daging ayam berkualitas dengan lapisan tepung renyah, menghasilkan rasa gurih lezat dan tekstur crispy saat digoreng. Sangat cocok dijadikan menu camilan, lauk, hingga ide jualan kekinian. Produk ini mudah diolah serta hemat waktu, cukup digoreng beberapa menit hingga matang dan siap disajikan.',
     image: '/images/naget-okey.webp?q=80&w=800&auto=format',
     packagingSize: '500g (40 Pcs)',
-    features: ['Pedagang Rumahan', 'Cafe & Angkringan', 'Reseller Frozen Food', 'UMKM Kuliner']
+    features: ['Konsumsi Keluarga', 'Cafe & Angkringan', 'Reseller Frozen Food', 'UMKM Kuliner']
   },
   {
     id: 'nugget-3',
