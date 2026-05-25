@@ -33,10 +33,10 @@ export const AboutUs: React.FC = () => {
                 <div className="w-8 h-8 rounded-lg bg-rose-100 flex items-center justify-center text-rose-600">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Garansi</span>
+                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">Garansi Return</span>
               </div>
               <p className="text-sm font-bold text-stone-800 leading-tight">
-                Tanpa Pengawet & Pewarna Buatan
+                Kemasan Rusak, dan Isi Berubah Rasa.
               </p>
             </div>
           </div>
@@ -83,7 +83,7 @@ export const AboutUs: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-stone-900 text-sm sm:text-base">100% Bersertifikat Halal</h3>
-                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Seluruh mata rantai produksi dipantau ketat sesuai syariah halal MUI.</p>
+                  <p className="text-stone-500 text-xs sm:text-sm mt-0.5">Seluruh produk yang kami sediakan sudah bersertifikat halal MUI dan BPJPH.</p>
                 </div>
               </div>
 
