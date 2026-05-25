@@ -47,13 +47,13 @@ export const products: Product[] = [
   },
   {
     id: 'sosis-3',
-    name: 'Sosis Ayam Wortel Sehat',
+    name: 'Sosis Bakar Salaam',
     category: 'sosis',
-    description: 'Kombinasi sehat daging dada ayam lembut dan serutan wortel segar tinggi vitamin A.',
-    fullDescription: 'Pilihan nutrisi harian anak yang cerdas. Kami mencampurkan dada ayam fillet rendah lemak dengan wortel organik segar kaya serat dan Vitamin A. Menghasilkan sosis bertekstur empuk, gurih alami, serta memiliki rona keemasan yang menggugah selera tanpa pemanis buatan maupun zat pengawet berbahaya.',
-    image: 'https://images.unsplash.com/photo-1771243009177-9a074420461a?q=80&w=800&auto=format&fit=crop',
+    description: 'Sosis Bakar Salam merupakan sosis kombinasi ayam dan sapi dengan cita rasa gurih smoky khas bakaran.',
+    fullDescription: 'Sosis Bakar Salam hadir sebagai pilihan sosis premium dengan perpaduan daging ayam dan sapi yang menghasilkan rasa gurih lezat dan aroma bakaran yang menggugah selera. Memiliki tekstur kenyal dan juicy, sosis ini cocok disajikan untuk berbagai menu favorit seperti sosis bakar, hotdog, rice bowl, hingga aneka jajanan kekinian.',
+    image: '/images/sosis-bakar-salaam.webp?q=80&w=800&auto=format&fit=max',
     packagingSize: '400g (12 Pcs / Pack)',
-    features: ['Chicken Fillet Organik', 'Wortel Segar Bebas Pestisida', 'Sangat Rendah Lemak', 'Bagus untuk Sup Anak']
+    features: ['Cafe & Angkringan', 'UMKM Kuliner', 'Konsumsi Keluarga', 'Reseller Frozen Food']
   },
   {
     id: 'nugget-1',
@@ -87,13 +87,13 @@ export const products: Product[] = [
   },
   {
     id: 'bakso-1',
-    name: 'Bakso Sapi Urat',
+    name: 'Bakso Sapi Warisan',
     category: 'bakso',
-    description: 'Bakso sapi legendaris dengan cacahan urat sapi premium, tekstur berurat kenyal mantap.',
-    fullDescription: 'Definisi bakso urat sejati. Dibuat dengan rasio daging sapi asli yang sangat tinggi serta taburan cacahan urat sapi segar untuk menghasilkan tekstur berserat kasar yang kenyal, kokoh, dan berkarakter kuat saat digigit. Enak disantap bersama sup kaldu tulang kaki sapi hangat berpemanis daun bawang goreng.',
-    image: 'https://images.unsplash.com/photo-1589227365533-cee630bd59bd?q=80&w=800&auto=format&fit=crop',
+    description: 'Bakso Warisan 319 adalah bakso daging sapi dengan cita rasa gurih khas dan tekstur kenyal.',
+    fullDescription: 'Bakso Warisan 319 hadir dengan cita rasa bakso daging sapi yang kaya rasa dan nikmat. Dibuat dari bahan berkualitas dengan resep pilihan untuk menghasilkan tekstur bakso yang kenyal, padat, dan gurih di setiap gigitan. Cocok untuk berbagai kebutuhan kuliner, mulai dari sajian bakso kuah rumahan hingga kebutuhan usaha seperti warung bakso, mie ayam, catering, dan frozen food.',
+    image: '/images/bakso-warisan.webp?q=80&w=800&auto=format&fit=max',
     packagingSize: '50 Pcs + Bumbu Kaldu Instan',
-    features: ['Urat Sapi Murni Pilihan', 'Bebas Pengawet Boraks/Formalin', 'Tekstur Kasar Khas Tradisional', 'Gratis Bumbu Kaldu Bubuk Enak']
+    features: ['Pedagang Bakso', 'Catering', 'Cafe & Angkringan', 'Konsumsi Keluarga']
   },
   {
     id: 'bakso-2',
