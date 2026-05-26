@@ -78,8 +78,7 @@ export const HeroSlider: React.FC = () => {
                         isActive ? 'animate-slide-up-1' : ''
                       }`}
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-                      Premium & 100% Halal
+                      
                     </div>
 
                     {/* Headline */}
@@ -110,12 +109,7 @@ export const HeroSlider: React.FC = () => {
                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </button>
                       
-                      <button
-                        onClick={() => scrollToSection('tentang-kami')}
-                        className="bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base px-6 sm:px-8 py-3.5 rounded-xl backdrop-blur-sm border border-white/25 transition-all duration-300 hover:scale-[1.03] active:scale-95"
-                      >
-                        Kisah Kami
-                      </button>
+                      
                     </div>
 
                   </div>
