@@ -91,9 +91,6 @@ export const HeroSlider: React.FC = () => {
                     </p>
 
                     
-                      
-                      
-                    </div>
 
                   </div>
                 </div>
