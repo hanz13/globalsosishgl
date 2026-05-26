@@ -3,9 +3,9 @@ import { Product, Slide, Article, ContactInfo } from './types';
 export const slides: Slide[] = [
   {
     id: 'slide-1',
-    image: '/images/slider-1.webp?q=80&w=1600&auto=format&fit=crop',
-    headline: '',
-    subheading: '',
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop',
+    headline: 'Sosis Premium Terbaik Dari Haurgeulis',
+    subheading: 'Dibuat dari 100% daging sapi & ayam pilihan dengan racikan rempah khas yang kaya rasa, gurih, dan halal.',
     ctaText: 'Lihat Produk Sosis'
   },
   {
