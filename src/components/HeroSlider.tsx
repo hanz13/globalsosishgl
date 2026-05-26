@@ -64,22 +64,13 @@ export const HeroSlider: React.FC = () => {
                 className="w-full h-full object-cover object-center"
               />
 
-              {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-stone-950/80 via-stone-900/60 to-stone-950/40" />
-
+              
               {/* Slide Content */}
               <div className="absolute inset-0 flex items-center z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                   <div className="max-w-2xl text-left">
                     
-                    {/* Badge */}
-                    <div 
-                      className={`inline-flex items-center gap-1.5 bg-rose-600/90 text-white font-bold text-[10px] md:text-xs uppercase tracking-widest px-3 py-1.5 rounded-full mb-4 sm:mb-6 border border-rose-400/30 shadow-lg ${
-                        isActive ? 'animate-slide-up-1' : ''
-                      }`}
-                    >
-                      
-                    </div>
+                    
 
                     {/* Headline */}
                     <h1 
@@ -99,15 +90,7 @@ export const HeroSlider: React.FC = () => {
                       {slide.subheading}
                     </p>
 
-                    {/* Buttons / CTA */}
-                    <div className={`mt-8 sm:mt-10 flex flex-wrap gap-4 ${isActive ? 'animate-slide-up-4' : ''}`}>
-                      <button
-                        onClick={() => scrollToSection('produk')}
-                        className="flex items-center gap-2 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 rounded-xl shadow-lg shadow-rose-950/30 transition-all duration-300 hover:scale-[1.03] active:scale-95 group focus:outline-none"
-                      >
-                        {slide.ctaText}
-                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </button>
+                    
                       
                       
                     </div>
