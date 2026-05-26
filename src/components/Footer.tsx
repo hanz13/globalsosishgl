@@ -144,7 +144,7 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
               </a>
 
               <a
-                href="https://facebook.com"
+                href="https://web.facebook.com/globalsosis"
                 target="_blank"
                 rel="noopener noreferrer"
                 referrerPolicy="no-referrer"
