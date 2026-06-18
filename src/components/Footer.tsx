@@ -133,7 +133,7 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
             {/* Social Icons links container */}
             <div className="flex gap-3 mb-6" id="social-links-row">
               <a
-                href="https://instagram.com"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 referrerPolicy="no-referrer"
@@ -155,7 +155,7 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
               </a>
 
               <a
-                href="https://tiktok.com"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 referrerPolicy="no-referrer"
@@ -169,7 +169,7 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
               </a>
 
               <a
-                href="https://google.com"
+                href="/"
                 target="_blank"
                 rel="noopener noreferrer"
                 referrerPolicy="no-referrer"
