@@ -134,7 +134,6 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
             <div className="flex gap-3 mb-6" id="social-links-row">
               <a
                 href="#"
-                target="_blank"
                 rel="noopener noreferrer"
                 referrerPolicy="no-referrer"
                 className="w-10 h-10 rounded-xl bg-stone-800 hover:bg-rose-600 text-stone-400 hover:text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -156,7 +155,6 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
 
               <a
                 href="#"
-                target="_blank"
                 rel="noopener noreferrer"
                 referrerPolicy="no-referrer"
                 className="w-10 h-10 rounded-xl bg-stone-800 hover:bg-rose-600 text-stone-400 hover:text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -170,7 +168,6 @@ export const Footer: React.FC<FooterProps> = ({ onViewChange }) => {
 
               <a
                 href="/"
-                target="_blank"
                 rel="noopener noreferrer"
                 referrerPolicy="no-referrer"
                 className="w-10 h-10 rounded-xl bg-stone-800 hover:bg-rose-600 text-stone-400 hover:text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
